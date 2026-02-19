@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 
 export default function Header() {
@@ -30,9 +29,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-8">
             {[
               { href: '/solutions', label: 'Solutions' },
-              { href: '/products', label: 'Products' },
               { href: '/case-studies', label: 'Case Studies' },
-              { href: '/pricing', label: 'Pricing' },
               { href: '/about', label: 'About' },
             ].map((link) => (
               <Link
@@ -49,7 +46,7 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <Link href="/contact">
               <Button variant="gradient" size="sm">
-                Get Started
+                Talk to Us
               </Button>
             </Link>
           </div>

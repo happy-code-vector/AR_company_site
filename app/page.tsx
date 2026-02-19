@@ -1,5 +1,8 @@
 import Hero from '@/components/sections/Hero'
 import Features from '@/components/sections/Features'
+import Expertise from '@/components/sections/Expertise'
+import Process from '@/components/sections/Process'
+import CTA from '@/components/sections/CTA'
 import { getMDXBySlug } from '@/lib/mdx'
 
 export default async function HomePage() {
@@ -21,10 +24,16 @@ export default async function HomePage() {
       {featuresData && (
         <Features
           title={featuresData.frontmatter.title}
-          subtitle="Everything you need to launch your app"
+          subtitle={featuresData.frontmatter.subtitle}
           features={featuresData.frontmatter.features}
         />
       )}
+
+      <Expertise />
+
+      <Process />
+
+      <CTA />
     </>
   )
 }
