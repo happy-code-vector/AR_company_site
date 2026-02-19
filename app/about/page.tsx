@@ -1,12 +1,11 @@
 import { Metadata } from 'next'
 import { getMDXBySlug } from '@/lib/mdx'
-import Hero from '@/components/sections/Hero'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 
 export const metadata: Metadata = {
   title: 'About - AR Company',
-  description: 'Learn about our mission, values, and the team behind AR Company.',
+  description: 'Meet the founder and learn about AR Company.',
 }
 
 export default async function AboutPage() {
@@ -14,17 +13,96 @@ export default async function AboutPage() {
 
   return (
     <>
+      {/* Hero with Owner */}
       {data && (
-        <Hero
-          headline={data.frontmatter.title}
-          subheadline={data.frontmatter.subtitle}
-        />
+        <section className="py-24 md:py-32 relative overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-accent-purple/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-pink/20 rounded-full blur-3xl" />
+          </div>
+
+          <div className="container relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Owner Image */}
+              <div className="order-2 lg:order-1">
+                <div className="relative">
+                  {/* Decorative elements */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue rounded-3xl opacity-20 blur-xl" />
+                  <div className="relative glass rounded-3xl p-2">
+                    {/* Image placeholder */}
+                    <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-dark-700 to-dark-800 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/30 via-accent-pink/20 to-accent-blue/30" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent-purple to-accent-pink flex items-center justify-center">
+                          <span className="text-6xl font-bold text-white">
+                            {data.frontmatter.owner.name.split(' ').map((n: string) => n[0]).join('')}
+                          </span>
+                        </div>
+                      </div>
+                      {/* Replace with actual image: */}
+                      {/* <Image src={data.frontmatter.owner.image} alt={data.frontmatter.owner.name} fill className="object-cover" /> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Owner Info */}
+              <div className="order-1 lg:order-2">
+                <span className="text-accent-purple text-sm font-medium uppercase tracking-wider">About</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4">
+                  <span className="gradient-text">{data.frontmatter.owner.name}</span>
+                </h1>
+                <p className="text-xl text-accent-pink mb-6">{data.frontmatter.owner.title}</p>
+                <p className="text-lg text-light-300 leading-relaxed mb-8">
+                  {data.frontmatter.owner.bio}
+                </p>
+
+                {/* Contact Info */}
+                <div className="space-y-4 mb-8">
+                  <a href={`mailto:${data.frontmatter.owner.email}`} className="flex items-center gap-4 text-light-200 hover:text-light-100 transition-colors group">
+                    <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center group-hover:bg-accent-purple/20 transition-colors">
+                      <span>📧</span>
+                    </div>
+                    <span>{data.frontmatter.owner.email}</span>
+                  </a>
+                  <a href={`tel:${data.frontmatter.owner.phone}`} className="flex items-center gap-4 text-light-200 hover:text-light-100 transition-colors group">
+                    <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center group-hover:bg-accent-purple/20 transition-colors">
+                      <span>📱</span>
+                    </div>
+                    <span>{data.frontmatter.owner.phone}</span>
+                  </a>
+                </div>
+
+                {/* Social Links */}
+                <div className="flex gap-4">
+                  <a
+                    href={data.frontmatter.owner.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xl">in</span>
+                  </a>
+                  <a
+                    href={data.frontmatter.owner.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-xl">𝕏</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Stats */}
       {data && (
         <section className="py-16 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-accent-purple/20 via-accent-pink/20 to-accent-blue/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-accent-purple/10 via-accent-pink/10 to-accent-blue/10" />
           <div className="container relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {data.frontmatter.stats.map((stat: any, index: number) => (
@@ -40,7 +118,7 @@ export default async function AboutPage() {
         </section>
       )}
 
-      {/* Our Story */}
+      {/* Company Story */}
       {data && (
         <section className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
@@ -50,11 +128,11 @@ export default async function AboutPage() {
                 <span className="gradient-text">Our Story</span>
               </h2>
               <p className="text-xl text-light-300 mb-10 leading-relaxed">
-                {data.frontmatter.story}
+                {data.frontmatter.company.story}
               </p>
               <div className="glass rounded-2xl p-8">
                 <h3 className="text-2xl font-semibold mb-4 gradient-text">Our Mission</h3>
-                <p className="text-light-300 text-lg leading-relaxed">{data.frontmatter.mission}</p>
+                <p className="text-light-300 text-lg leading-relaxed">{data.frontmatter.company.mission}</p>
               </div>
             </div>
           </div>
@@ -83,45 +161,19 @@ export default async function AboutPage() {
         </section>
       )}
 
-      {/* Team */}
-      {data && (
-        <section className="py-24 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
-          <div className="container relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              <span className="gradient-text">Meet the Team</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {data.frontmatter.team.map((member: any, index: number) => (
-                <Card key={index} variant="glass" className="text-center group">
-                  <div className="w-24 h-24 bg-gradient-to-br from-accent-purple to-accent-pink rounded-full mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-3xl font-bold text-white">
-                      {member.name.split(' ').map((n: string) => n[0]).join('')}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-light-100">{member.name}</h3>
-                  <p className="text-accent-purple mb-3">{member.role}</p>
-                  <p className="text-light-400 text-sm">{member.bio}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* CTA */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent-purple/30 via-accent-pink/30 to-accent-blue/30" />
         <div className="container relative z-10">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Start Your Project?
+              Let&apos;s Build Something Great
             </h2>
-            <p className="text-xl text-light-300 mb-10 max-w-2xl mx-auto">
-              Let&apos;s discuss how we can help bring your app idea to life.
+            <p className="text-xl text-light-200 mb-10 max-w-2xl mx-auto">
+              Ready to discuss your project? Get in touch and let&apos;s explore how we can help.
             </p>
             <Button variant="gradient" size="lg">
-              Get in Touch
+              Contact Us
             </Button>
           </div>
         </div>
