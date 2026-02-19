@@ -2,7 +2,7 @@ import { HTMLAttributes, forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  color?: 'primary' | 'secondary' | 'success' | 'warning'
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'purple' | 'pink' | 'blue'
 }
 
 const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
@@ -11,12 +11,13 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
       <span
         ref={ref}
         className={cn(
-          'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+          'inline-flex items-center px-3 py-1 rounded-full text-xs font-medium',
           {
-            'bg-primary-100 text-primary-800': color === 'primary',
-            'bg-secondary-100 text-secondary-800': color === 'secondary',
-            'bg-success/10 text-success': color === 'success',
-            'bg-warning/10 text-warning': color === 'warning',
+            'bg-accent-purple/20 text-accent-purple border border-accent-purple/30': color === 'primary' || color === 'purple',
+            'bg-accent-blue/20 text-accent-blue border border-accent-blue/30': color === 'secondary' || color === 'blue',
+            'bg-accent-green/20 text-accent-green border border-accent-green/30': color === 'success',
+            'bg-accent-orange/20 text-accent-orange border border-accent-orange/30': color === 'warning',
+            'bg-accent-pink/20 text-accent-pink border border-accent-pink/30': color === 'pink',
           },
           className
         )}

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { getMDXBySlug } from '@/lib/mdx'
 import Hero from '@/components/sections/Hero'
 import Card from '@/components/ui/Card'
+import Button from '@/components/ui/Button'
 
 export const metadata: Metadata = {
   title: 'About - AR Company',
@@ -22,15 +23,16 @@ export default async function AboutPage() {
 
       {/* Stats */}
       {data && (
-        <section className="py-12 bg-primary-600">
-          <div className="container">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section className="py-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-accent-purple/20 via-accent-pink/20 to-accent-blue/20" />
+          <div className="container relative z-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {data.frontmatter.stats.map((stat: any, index: number) => (
-                <div key={index} className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                <div key={index} className="glass rounded-2xl p-6 text-center">
+                  <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-primary-100">{stat.label}</div>
+                  <div className="text-light-400">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -40,16 +42,19 @@ export default async function AboutPage() {
 
       {/* Our Story */}
       {data && (
-        <section className="py-16">
-          <div className="container">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">Our Story</h2>
-              <p className="text-lg text-neutral-600 mb-6">
+        <section className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
+          <div className="container relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                <span className="gradient-text">Our Story</span>
+              </h2>
+              <p className="text-xl text-light-300 mb-10 leading-relaxed">
                 {data.frontmatter.story}
               </p>
-              <div className="bg-primary-50 rounded-lg p-8 text-center">
-                <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-                <p className="text-neutral-700">{data.frontmatter.mission}</p>
+              <div className="glass rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold mb-4 gradient-text">Our Mission</h3>
+                <p className="text-light-300 text-lg leading-relaxed">{data.frontmatter.mission}</p>
               </div>
             </div>
           </div>
@@ -58,15 +63,19 @@ export default async function AboutPage() {
 
       {/* Values */}
       {data && (
-        <section className="py-16 bg-neutral-50">
+        <section className="py-24 relative">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              <span className="gradient-text">Our Values</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {data.frontmatter.values.map((value: any, index: number) => (
-                <Card key={index} variant="elevated" className="text-center">
-                  <div className="text-5xl mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-neutral-600">{value.description}</p>
+                <Card key={index} variant="glass" className="text-center group">
+                  <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-light-100">{value.title}</h3>
+                  <p className="text-light-400">{value.description}</p>
                 </Card>
               ))}
             </div>
@@ -76,20 +85,23 @@ export default async function AboutPage() {
 
       {/* Team */}
       {data && (
-        <section className="py-16">
-          <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Meet the Team</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
+          <div className="container relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+              <span className="gradient-text">Meet the Team</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {data.frontmatter.team.map((member: any, index: number) => (
-                <Card key={index} variant="bordered" className="text-center">
-                  <div className="w-24 h-24 bg-primary-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-primary-600">
+                <Card key={index} variant="glass" className="text-center group">
+                  <div className="w-24 h-24 bg-gradient-to-br from-accent-purple to-accent-pink rounded-full mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-3xl font-bold text-white">
                       {member.name.split(' ').map((n: string) => n[0]).join('')}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold">{member.name}</h3>
-                  <p className="text-primary-600 mb-2">{member.role}</p>
-                  <p className="text-neutral-600 text-sm">{member.bio}</p>
+                  <h3 className="text-xl font-semibold text-light-100">{member.name}</h3>
+                  <p className="text-accent-purple mb-3">{member.role}</p>
+                  <p className="text-light-400 text-sm">{member.bio}</p>
                 </Card>
               ))}
             </div>
@@ -98,21 +110,19 @@ export default async function AboutPage() {
       )}
 
       {/* CTA */}
-      <section className="py-16 bg-neutral-900">
-        <div className="container">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-accent-purple/30 via-accent-pink/30 to-accent-blue/30" />
+        <div className="container relative z-10">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-neutral-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-light-300 mb-10 max-w-2xl mx-auto">
               Let&apos;s discuss how we can help bring your app idea to life.
             </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg font-medium transition-all px-6 py-3 text-lg bg-primary-600 text-white hover:bg-primary-700"
-            >
+            <Button variant="gradient" size="lg">
               Get in Touch
-            </a>
+            </Button>
           </div>
         </div>
       </section>

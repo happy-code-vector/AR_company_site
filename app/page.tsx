@@ -14,12 +14,14 @@ export default async function HomePage() {
           subheadline={heroData.frontmatter.subheadline}
           primaryCta={heroData.frontmatter.primaryCta}
           secondaryCta={heroData.frontmatter.secondaryCta}
+          stats={heroData.frontmatter.stats}
         />
       )}
 
       {featuresData && (
         <Features
           title={featuresData.frontmatter.title}
+          subtitle="Everything you need to launch your app"
           features={featuresData.frontmatter.features}
         />
       )}

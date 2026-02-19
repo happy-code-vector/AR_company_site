@@ -88,18 +88,22 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 md:py-32">
-        <div className="container">
+      <section className="relative py-24 md:py-40 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent-purple/30 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-pink/30 rounded-full blur-3xl" />
+        </div>
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-6">
-              {pricingData.title}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="gradient-text">{pricingData.title}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-neutral-600">
+            <p className="text-xl md:text-2xl text-light-300">
               {pricingData.subtitle}
             </p>
           </motion.div>
@@ -107,43 +111,44 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-16 md:py-24">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
+        <div className="container relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pricingData.tiers.map((tier, index) => (
               <Card
                 key={index}
-                variant={tier.highlighted ? 'elevated' : 'bordered'}
-                className={`relative flex flex-col ${tier.highlighted ? 'ring-2 ring-primary-600 scale-105' : ''}`}
+                variant={tier.highlighted ? 'gradient' : 'glass'}
+                className={`relative flex flex-col ${tier.highlighted ? 'ring-2 ring-accent-purple/50 scale-105' : ''}`}
               >
                 {tier.highlighted && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-gradient-to-r from-accent-purple to-accent-pink text-white px-4 py-1 rounded-full text-sm font-medium">
                       Most Popular
                     </span>
                   </div>
                 )}
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-semibold mb-2">{tier.name}</h3>
+                  <h3 className="text-2xl font-semibold mb-2 text-light-100">{tier.name}</h3>
                   <div className="mb-2">
-                    <span className="text-4xl font-bold text-neutral-900">${tier.price}</span>
+                    <span className="text-5xl font-bold gradient-text">${tier.price}</span>
                     {tier.period && (
-                      <span className="text-neutral-500 ml-2">{tier.period}</span>
+                      <span className="text-light-400 ml-2">{tier.period}</span>
                     )}
                   </div>
-                  <p className="text-neutral-600">{tier.description}</p>
+                  <p className="text-light-400">{tier.description}</p>
                 </div>
                 <ul className="space-y-3 mb-8 flex-grow">
                   {tier.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
-                      <span className="text-primary-600 mr-2 mt-0.5">✓</span>
-                      <span className="text-neutral-600">{feature}</span>
+                      <span className="text-accent-purple mr-3 mt-0.5">✓</span>
+                      <span className="text-light-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Link href="/contact">
                   <Button
-                    variant={tier.highlighted ? 'primary' : 'outline'}
+                    variant={tier.highlighted ? 'gradient' : 'outline'}
                     size="lg"
                     className="w-full"
                   >
@@ -157,27 +162,29 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-24 relative">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            <span className="gradient-text">Frequently Asked Questions</span>
+          </h2>
           <div className="max-w-3xl mx-auto space-y-4">
             {pricingData.faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border border-neutral-200 overflow-hidden"
+                className="glass rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors"
+                  className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
                 >
-                  <span className="font-medium text-neutral-900">{faq.question}</span>
-                  <span className="text-primary-600 text-xl">
+                  <span className="font-medium text-light-100">{faq.question}</span>
+                  <span className="text-accent-purple text-xl">
                     {openFaq === index ? '−' : '+'}
                   </span>
                 </button>
                 {openFaq === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-neutral-600">{faq.answer}</p>
+                  <div className="px-6 pb-5">
+                    <p className="text-light-300">{faq.answer}</p>
                   </div>
                 )}
               </div>
