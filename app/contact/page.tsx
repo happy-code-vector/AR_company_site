@@ -24,8 +24,8 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-semibold text-light-100 mb-3">General Inquiries</h3>
               <p className="text-light-400 mb-4">Questions about our apps or company</p>
-              <a href="mailto:hello@arcompany.dev" className="text-accent-purple hover:text-accent-pink transition-colors">
-                hello@arcompany.dev
+              <a href="mailto:info@apphubusa.com" className="text-accent-purple hover:text-accent-pink transition-colors">
+                info@apphubusa.com
               </a>
             </Card>
 
@@ -35,8 +35,8 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-semibold text-light-100 mb-3">App Support</h3>
               <p className="text-light-400 mb-4">Need help with one of our apps?</p>
-              <a href="mailto:support@arcompany.dev" className="text-accent-purple hover:text-accent-pink transition-colors">
-                support@arcompany.dev
+              <a href="mailto:info@apphubusa.com" className="text-accent-purple hover:text-accent-pink transition-colors">
+                info@apphubusa.com
               </a>
             </Card>
 
@@ -46,8 +46,8 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-semibold text-light-100 mb-3">Press & Media</h3>
               <p className="text-light-400 mb-4">Interview requests and media inquiries</p>
-              <a href="mailto:press@arcompany.dev" className="text-accent-purple hover:text-accent-pink transition-colors">
-                press@arcompany.dev
+              <a href="mailto:info@apphubusa.com" className="text-accent-purple hover:text-accent-pink transition-colors">
+                info@apphubusa.com
               </a>
             </Card>
           </div>
