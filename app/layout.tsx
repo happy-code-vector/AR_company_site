@@ -7,9 +7,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'AR Company - Web & Mobile App Development',
-  description: 'We build and ship web and mobile applications to app stores. From concept to launch, we handle everything.',
-  keywords: ['web app development', 'mobile app development', 'app store launch'],
+  title: 'AR Company - Mobile Apps That Make Life Better',
+  description: 'We create beautiful mobile apps that help people learn, connect, and live better. Download QuizliAI and Coupl from the App Store.',
+  keywords: ['mobile apps', 'iOS apps', 'App Store', 'QuizliAI', 'Coupl', 'study app', 'relationship app'],
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-icon.svg',
+  },
 }
 
 export default function RootLayout({
