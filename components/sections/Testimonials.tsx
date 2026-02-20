@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Card from '@/components/ui/Card'
 
 export interface Testimonial {
@@ -59,7 +60,7 @@ export default function Testimonials({ title, subtitle, testimonials }: Testimon
               <Card variant="glass" className="h-full">
                 {/* Quote */}
                 <div className="mb-6">
-                  <span className="text-4xl text-accent-purple/50">"</span>
+                  <span className="text-4xl text-accent-purple/50">&ldquo;</span>
                   <p className="text-light-200 leading-relaxed -mt-4">
                     {testimonial.quote}
                   </p>
@@ -68,10 +69,12 @@ export default function Testimonials({ title, subtitle, testimonials }: Testimon
                 {/* Author */}
                 <div className="flex items-center gap-4">
                   {testimonial.avatar ? (
-                    <img
+                    <Image
                       src={testimonial.avatar}
                       alt={testimonial.author}
-                      className="w-12 h-12 rounded-full object-cover"
+                      width={48}
+                      height={48}
+                      className="rounded-full object-cover"
                     />
                   ) : (
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-purple to-accent-pink flex items-center justify-center text-white font-semibold">

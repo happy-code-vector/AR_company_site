@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { getMDXBySlug } from '@/lib/mdx'
 import Hero from '@/components/sections/Hero'
 import Card from '@/components/ui/Card'
@@ -30,10 +31,11 @@ export default async function PortfolioPage() {
                 <Card key={index} variant="glass" className="group overflow-hidden p-0">
                   {/* App Image */}
                   <div className="relative h-48 bg-gradient-to-br from-dark-700 to-dark-800 overflow-hidden">
-                    <img
+                    <Image
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                     {/* Stats overlay */}
                     <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">

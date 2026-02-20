@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 
 export default function Header() {
@@ -22,7 +23,7 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="AR Company" className="h-10 w-auto" />
+            <Image src="/logo.png" alt="AR Company" width={40} height={40} className="h-10 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

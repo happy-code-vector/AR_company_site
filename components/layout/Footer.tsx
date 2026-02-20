@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="AR Company" className="h-10 w-auto" />
+              <Image src="/logo.png" alt="AR Company" width={40} height={40} className="h-10 w-auto" />
             </Link>
             <p className="text-light-400 leading-relaxed max-w-md">
               We create beautiful mobile apps that help people learn, connect, and live better. Available on the App Store.

@@ -67,10 +67,11 @@ export default function PhoneMockup({ title, subtitle, phoneImage, stats }: Phon
                 {/* Screen */}
                 <div className="absolute inset-3 top-8 bg-dark-950 rounded-[2rem] overflow-hidden">
                   {phoneImage ? (
-                    <img
+                    <Image
                       src={phoneImage}
                       alt="App screenshot"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-accent-purple/30 via-accent-pink/20 to-accent-blue/30 flex items-center justify-center">
