@@ -9,16 +9,6 @@ export const metadata: Metadata = {
   description: 'Discover our collection of beautiful mobile apps available on the App Store.',
 }
 
-const categoryIcons: Record<string, string> = {
-  'Productivity': '⚡',
-  'Health & Wellness': '🧘',
-  'Photo & Video': '📸',
-  'Lifestyle': '🌟',
-  'Utilities': '🔧',
-  'Games': '🎮',
-  'Education': '📚',
-}
-
 export default async function PortfolioPage() {
   const data = await getMDXBySlug('portfolio', 'portfolio')
 
@@ -38,16 +28,13 @@ export default async function PortfolioPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {data.frontmatter.products.map((product: any, index: number) => (
                 <Card key={index} variant="glass" className="group overflow-hidden p-0">
-                  {/* App Icon */}
+                  {/* App Image */}
                   <div className="relative h-48 bg-gradient-to-br from-dark-700 to-dark-800 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/20 via-accent-pink/10 to-accent-blue/20" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-accent-purple to-accent-pink flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-5xl">
-                          {categoryIcons[product.category] || '📱'}
-                        </span>
-                      </div>
-                    </div>
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-cover"
+                    />
                     {/* Stats overlay */}
                     <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
                       <div className="flex items-center gap-1 bg-dark-950/60 backdrop-blur-sm rounded-full px-3 py-1">
@@ -86,7 +73,7 @@ export default async function PortfolioPage() {
                         href={product.link}
                         className="text-accent-purple hover:text-accent-pink transition-colors text-sm font-medium"
                       >
-                        App Store →
+                        App Page →
                       </a>
                     </div>
                   </div>

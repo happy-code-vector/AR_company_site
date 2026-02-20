@@ -21,9 +21,8 @@ export default function Header() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold gradient-text">AR</span>
-            <span className="text-2xl font-bold text-light-100">Company</span>
+          <Link href="/" className="flex items-center gap-3">
+            <img src="/logo.png" alt="AR Company" className="h-10 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

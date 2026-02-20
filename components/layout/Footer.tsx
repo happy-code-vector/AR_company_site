@@ -7,11 +7,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold gradient-text">AR</span>
-              <span className="text-2xl font-bold text-light-100">Company</span>
+              <img src="/logo.png" alt="AR Company" className="h-10 w-auto" />
             </Link>
             <p className="text-light-400 leading-relaxed max-w-md">
-              Full-stack software development services. We build web and mobile applications that drive business growth.
+              We create beautiful mobile apps that help people learn, connect, and live better. Available on the App Store.
             </p>
           </div>
 
@@ -27,7 +26,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-light-100 mb-4">Contact</h4>
             <ul className="space-y-3">
-              <li className="text-light-400">ahmed@arcompany.dev</li>
+              <li className="text-light-400">info@apphubusa.com</li>
               <li className="text-light-400">+1 (555) 123-4567</li>
             </ul>
             <div className="flex gap-4 mt-4">
