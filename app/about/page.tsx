@@ -23,76 +23,45 @@ export default async function AboutPage() {
           </div>
 
           <div className="container relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Owner Image */}
-              <div className="order-2 lg:order-1">
-                <div className="relative">
-                  {/* Decorative elements */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue rounded-3xl opacity-20 blur-xl" />
-                  <div className="relative glass rounded-3xl p-2">
-                    {/* Image placeholder */}
-                    <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-dark-700 to-dark-800 overflow-hidden relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/30 via-accent-pink/20 to-accent-blue/30" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent-purple to-accent-pink flex items-center justify-center">
-                          <span className="text-6xl font-bold text-white">
-                            {data.frontmatter.owner.name.split(' ').map((n: string) => n[0]).join('')}
-                          </span>
-                        </div>
-                      </div>
-                      {/* Replace with actual image: */}
-                      {/* <Image src={data.frontmatter.owner.image} alt={data.frontmatter.owner.name} fill className="object-cover" /> */}
-                    </div>
+            <div className="max-w-3xl mx-auto text-center">
+              {/* Owner Info */}
+              <span className="text-accent-purple text-sm font-medium uppercase tracking-wider">About</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4">
+                <span className="gradient-text">{data.frontmatter.owner.name}</span>
+              </h1>
+              <p className="text-xl text-accent-pink mb-6">{data.frontmatter.owner.title}</p>
+              <p className="text-lg text-light-300 leading-relaxed mb-8">
+                {data.frontmatter.owner.bio}
+              </p>
+
+              {/* Contact Info */}
+              <div className="flex flex-wrap justify-center gap-6 mb-8">
+                <a href={`mailto:${data.frontmatter.owner.email}`} className="flex items-center gap-3 text-light-200 hover:text-light-100 transition-colors group">
+                  <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center group-hover:bg-accent-purple/20 transition-colors">
+                    <span>📧</span>
                   </div>
-                </div>
+                  <span>{data.frontmatter.owner.email}</span>
+                </a>
               </div>
 
-              {/* Owner Info */}
-              <div className="order-1 lg:order-2">
-                <span className="text-accent-purple text-sm font-medium uppercase tracking-wider">About</span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-4">
-                  <span className="gradient-text">{data.frontmatter.owner.name}</span>
-                </h1>
-                <p className="text-xl text-accent-pink mb-6">{data.frontmatter.owner.title}</p>
-                <p className="text-lg text-light-300 leading-relaxed mb-8">
-                  {data.frontmatter.owner.bio}
-                </p>
-
-                {/* Contact Info */}
-                <div className="space-y-4 mb-8">
-                  <a href={`mailto:${data.frontmatter.owner.email}`} className="flex items-center gap-4 text-light-200 hover:text-light-100 transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center group-hover:bg-accent-purple/20 transition-colors">
-                      <span>📧</span>
-                    </div>
-                    <span>{data.frontmatter.owner.email}</span>
-                  </a>
-                  <a href={`tel:${data.frontmatter.owner.phone}`} className="flex items-center gap-4 text-light-200 hover:text-light-100 transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center group-hover:bg-accent-purple/20 transition-colors">
-                      <span>📱</span>
-                    </div>
-                    <span>{data.frontmatter.owner.phone}</span>
-                  </a>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex gap-4">
-                  <a
-                    href={data.frontmatter.owner.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
-                  >
-                    <span className="text-xl">in</span>
-                  </a>
-                  <a
-                    href={data.frontmatter.owner.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
-                  >
-                    <span className="text-xl">𝕏</span>
-                  </a>
-                </div>
+              {/* Social Links */}
+              <div className="flex justify-center gap-4">
+                <a
+                  href={data.frontmatter.owner.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+                >
+                  <span className="text-xl">in</span>
+                </a>
+                <a
+                  href={data.frontmatter.owner.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+                >
+                  <span className="text-xl">𝕏</span>
+                </a>
               </div>
             </div>
           </div>
