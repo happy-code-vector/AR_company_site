@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="50%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#09090b" stroke="url(#grad1)" stroke-width="1.5"/>
+  <!-- AR Letters -->
+  <text x="16" y="21" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="url(#grad1)" text-anchor="middle">AR</text>
+  <!-- Accent dot -->
+  <circle cx="25" cy="7" r="2" fill="url(#grad2)"/>
+</svg>
