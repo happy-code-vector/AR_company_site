@@ -5,8 +5,18 @@ import Card from '@/components/ui/Card'
 import Badge from '@/components/ui/Badge'
 
 export const metadata: Metadata = {
-  title: 'Portfolio - AR Company',
-  description: 'Explore our portfolio of web and mobile applications built for clients across various industries.',
+  title: 'Our Apps - AR Company',
+  description: 'Discover our collection of beautiful mobile apps available on the App Store.',
+}
+
+const categoryIcons: Record<string, string> = {
+  'Productivity': '⚡',
+  'Health & Wellness': '🧘',
+  'Photo & Video': '📸',
+  'Lifestyle': '🌟',
+  'Utilities': '🔧',
+  'Games': '🎮',
+  'Education': '📚',
 }
 
 export default async function PortfolioPage() {
@@ -28,45 +38,56 @@ export default async function PortfolioPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {data.frontmatter.products.map((product: any, index: number) => (
                 <Card key={index} variant="glass" className="group overflow-hidden p-0">
-                  {/* Product Image */}
+                  {/* App Icon */}
                   <div className="relative h-48 bg-gradient-to-br from-dark-700 to-dark-800 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/20 via-accent-pink/10 to-accent-blue/20" />
-                    {/* Mock image placeholder */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-purple to-accent-pink flex items-center justify-center">
-                        <span className="text-4xl">
-                          {product.category === 'Mobile App' ? '📱' :
-                           product.category === 'Web Application' ? '🌐' :
-                           product.category === 'SaaS Platform' ? '☁️' :
-                           product.category === 'Desktop Application' ? '💻' :
-                           product.category === 'Web & Mobile' ? '🚀' : '📦'}
+                      <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-accent-purple to-accent-pink flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
+                        <span className="text-5xl">
+                          {categoryIcons[product.category] || '📱'}
                         </span>
                       </div>
                     </div>
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-dark-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white font-medium">View Project →</span>
+                    {/* Stats overlay */}
+                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                      <div className="flex items-center gap-1 bg-dark-950/60 backdrop-blur-sm rounded-full px-3 py-1">
+                        <span className="text-yellow-400">★</span>
+                        <span className="text-white text-sm font-medium">{product.rating}</span>
+                      </div>
+                      <div className="bg-dark-950/60 backdrop-blur-sm rounded-full px-3 py-1">
+                        <span className="text-light-300 text-sm">{product.downloads}</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Product Info */}
+                  {/* App Info */}
                   <div className="p-6">
-                    <Badge color="purple" className="mb-3">{product.category}</Badge>
+                    <div className="flex items-center justify-between mb-3">
+                      <Badge color="purple">{product.category}</Badge>
+                    </div>
                     <h3 className="text-xl font-semibold text-light-100 mb-2 group-hover:text-accent-purple transition-colors">
                       {product.title}
                     </h3>
                     <p className="text-light-400 text-sm mb-4 line-clamp-2">
                       {product.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.technologies.map((tech: string, i: number) => (
-                        <span
-                          key={i}
-                          className="text-xs px-2 py-1 rounded-full bg-dark-700 text-light-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      <div className="flex flex-wrap gap-2">
+                        {product.technologies.slice(0, 2).map((tech: string, i: number) => (
+                          <span
+                            key={i}
+                            className="text-xs px-2 py-1 rounded-full bg-dark-700 text-light-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <a
+                        href={product.link}
+                        className="text-accent-purple hover:text-accent-pink transition-colors text-sm font-medium"
+                      >
+                        App Store →
+                      </a>
                     </div>
                   </div>
                 </Card>

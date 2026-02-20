@@ -1,7 +1,5 @@
 import Hero from '@/components/sections/Hero'
 import Features from '@/components/sections/Features'
-import Expertise from '@/components/sections/Expertise'
-import Process from '@/components/sections/Process'
 import CTA from '@/components/sections/CTA'
 import { getMDXBySlug } from '@/lib/mdx'
 
@@ -29,11 +27,11 @@ export default async function HomePage() {
         />
       )}
 
-      <Expertise />
-
-      <Process />
-
-      <CTA />
+      <CTA
+        title="Explore Our Apps"
+        subtitle="Discover apps designed to make your life easier, more productive, and more fun."
+        primaryCta={{ text: "View on App Store", href: "/portfolio" }}
+      />
     </>
   )
 }
