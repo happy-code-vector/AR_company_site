@@ -4,8 +4,8 @@ import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: 'About - AR Company',
-  description: 'Meet the founder and learn about AR Company.',
+  title: 'About - AppHubUSA',
+  description: 'Meet the founder and learn about AppHubUSA.',
 }
 
 export default async function AboutPage() {

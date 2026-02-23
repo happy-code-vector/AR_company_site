@@ -6,7 +6,7 @@ import Card from '@/components/ui/Card'
 import Badge from '@/components/ui/Badge'
 
 export const metadata: Metadata = {
-  title: 'Our Apps - AR Company',
+  title: 'Our Apps - AppHubUSA',
   description: 'Discover our collection of beautiful mobile apps available on the App Store.',
 }
 

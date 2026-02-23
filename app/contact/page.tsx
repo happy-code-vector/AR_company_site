@@ -3,7 +3,7 @@ import Hero from '@/components/sections/Hero'
 import Card from '@/components/ui/Card'
 
 export const metadata: Metadata = {
-  title: 'Contact - AR Company',
+  title: 'Contact - AppHubUSA',
   description: 'Get in touch for press inquiries, support, or business opportunities.',
 }
 

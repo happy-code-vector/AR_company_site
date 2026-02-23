@@ -7,7 +7,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'AR Company - Mobile Apps That Make Life Better',
+  title: 'AppHubUSA - Mobile Apps That Make Life Better',
   description: 'We create beautiful mobile apps that help people learn, connect, and live better. Download QuizliAI and Coupl from the App Store.',
   keywords: ['mobile apps', 'iOS apps', 'App Store', 'QuizliAI', 'Coupl', 'study app', 'relationship app'],
   icons: {
