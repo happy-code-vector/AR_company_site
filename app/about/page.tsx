@@ -36,32 +36,12 @@ export default async function AboutPage() {
               </p>
 
               {/* Contact Info */}
-              <div className="flex flex-wrap justify-center gap-6 mb-8">
+              <div className="flex flex-wrap justify-center gap-6">
                 <a href={`mailto:${data.frontmatter.owner.email}`} className="flex items-center gap-3 text-light-200 hover:text-light-100 transition-colors group">
                   <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center group-hover:bg-accent-purple/20 transition-colors">
                     <span>📧</span>
                   </div>
                   <span>{data.frontmatter.owner.email}</span>
-                </a>
-              </div>
-
-              {/* Social Links */}
-              <div className="flex justify-center gap-4">
-                <a
-                  href={data.frontmatter.owner.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
-                >
-                  <span className="text-xl">in</span>
-                </a>
-                <a
-                  href={data.frontmatter.owner.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
-                >
-                  <span className="text-xl">𝕏</span>
                 </a>
               </div>
             </div>

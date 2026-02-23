@@ -36,10 +36,6 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="text-light-400">info@apphubusa.com</li>
             </ul>
-            <div className="flex gap-4 mt-4">
-              <a href="#" className="text-light-400 hover:text-light-100 transition-colors">Twitter</a>
-              <a href="#" className="text-light-400 hover:text-light-100 transition-colors">LinkedIn</a>
-            </div>
           </div>
         </div>
 
