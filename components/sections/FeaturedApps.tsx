@@ -12,8 +12,6 @@ export interface FeaturedApp {
   category: string
   image: string
   link: string
-  rating: string
-  downloads: string
   features?: string[]
 }
 
@@ -69,11 +67,6 @@ export default function FeaturedApps({ title, subtitle, apps }: FeaturedAppsProp
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    {/* Rating overlay */}
-                    <div className="absolute top-3 left-3 flex items-center gap-1 bg-dark-950/70 backdrop-blur-sm rounded-full px-2 py-1">
-                      <span className="text-yellow-400 text-sm">★</span>
-                      <span className="text-white text-sm font-medium">{app.rating}</span>
-                    </div>
                   </div>
 
                   {/* App Info */}
@@ -100,8 +93,7 @@ export default function FeaturedApps({ title, subtitle, apps }: FeaturedAppsProp
                       </div>
                     )}
 
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
-                      <span className="text-light-400 text-sm">{app.downloads} downloads</span>
+                    <div className="flex items-center justify-end mt-auto pt-4 border-t border-white/10">
                       <a
                         href={app.link}
                         className="text-accent-purple hover:text-accent-pink transition-colors font-medium flex items-center gap-1"

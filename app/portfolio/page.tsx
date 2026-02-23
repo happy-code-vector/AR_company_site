@@ -37,16 +37,6 @@ export default async function PortfolioPage() {
                       fill
                       className="object-cover"
                     />
-                    {/* Stats overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                      <div className="flex items-center gap-1 bg-dark-950/60 backdrop-blur-sm rounded-full px-3 py-1">
-                        <span className="text-yellow-400">★</span>
-                        <span className="text-white text-sm font-medium">{product.rating}</span>
-                      </div>
-                      <div className="bg-dark-950/60 backdrop-blur-sm rounded-full px-3 py-1">
-                        <span className="text-light-300 text-sm">{product.downloads}</span>
-                      </div>
-                    </div>
                   </div>
 
                   {/* App Info */}

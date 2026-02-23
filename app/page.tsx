@@ -48,8 +48,6 @@ export default async function HomePage() {
             category: product.category,
             image: product.image,
             link: product.link,
-            rating: product.rating,
-            downloads: product.downloads,
             features: product.technologies
           }))}
         />

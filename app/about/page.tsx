@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { getMDXBySlug } from '@/lib/mdx'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About - AppHubUSA',
@@ -68,20 +69,32 @@ export default async function AboutPage() {
         </section>
       )}
 
-      {/* Stats */}
+      {/* Studio Info */}
       {data && (
         <section className="py-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-accent-purple/10 via-accent-pink/10 to-accent-blue/10" />
           <div className="container relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {data.frontmatter.stats.map((stat: any, index: number) => (
-                <div key={index} className="glass rounded-2xl p-6 text-center">
-                  <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-light-400">{stat.label}</div>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                <span className="gradient-text">About Our Studio</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="glass rounded-2xl p-6 text-center">
+                  <div className="text-3xl mb-3">📅</div>
+                  <div className="text-light-400 text-sm mb-1">Founded</div>
+                  <div className="text-xl font-semibold text-light-100">{data.frontmatter.company.founded}</div>
                 </div>
-              ))}
+                <div className="glass rounded-2xl p-6 text-center">
+                  <div className="text-3xl mb-3">📍</div>
+                  <div className="text-light-400 text-sm mb-1">Location</div>
+                  <div className="text-xl font-semibold text-light-100">{data.frontmatter.company.location}</div>
+                </div>
+                <div className="glass rounded-2xl p-6 text-center">
+                  <div className="text-3xl mb-3">📱</div>
+                  <div className="text-light-400 text-sm mb-1">Focus</div>
+                  <div className="text-xl font-semibold text-light-100">iOS Development</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -136,14 +149,16 @@ export default async function AboutPage() {
         <div className="container relative z-10">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Let&apos;s Build Something Great
+              Get in Touch
             </h2>
             <p className="text-xl text-light-200 mb-10 max-w-2xl mx-auto">
-              Ready to discuss your project? Get in touch and let&apos;s explore how we can help.
+              Have questions about our apps or company? We&apos;d love to hear from you.
             </p>
-            <Button variant="gradient" size="lg">
-              Contact Us
-            </Button>
+            <Link href="/contact">
+              <Button variant="gradient" size="lg">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
